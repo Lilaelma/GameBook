@@ -6,30 +6,6 @@ from ray_casting import ray_casting_walls
 from drawing import Drawing
 from interaction import Interaction
 
-
-def intro(sc) :
-    t1 = 0
-    delta_t = 0
-    font_text = pygame.font.SysFont("Arial", 20, bold=True)
-    with open("intro.txt", "r") as fc :
-        for l in fc :
-
-            ligne = ""
-            for c in l :
-                if c != "\n" :
-                    ligne += c
-
-            render = font_text.render(ligne, 0, DARKBROWN)
-            text_pos = ((WIDTH - (len(ligne) * 10)) // 2, HEIGHT - 50)
-            sc.fill(BLACK)
-            t1 = time.time()
-            while delta_t <= 3 :
-                sc.blit(render, text_pos)
-                delta_t = time.time() - t1
-                pygame.display.flip()
-            print(ligne)
-            delta_t = 0
-
 pygame.init()
 sc = pygame.display.set_mode((WIDTH, HEIGHT))
 sc_map = pygame.Surface(MINIMAP_RES)
